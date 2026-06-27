@@ -2,12 +2,19 @@ services:
   - type: web
     name: mart-labaco-portfolio
     env: static
-    buildCommand: pnpm install --frozen-lockfile && pnpm --filter @workspace/portfolio run build
+    buildCommand: npm install -g pnpm && pnpm install --frozen-lockfile && NODE_ENV=production pnpm --filter @workspace/portfolio run build
     staticPublishPath: artifacts/portfolio/dist/public
     routes:
       - type: rewrite
         source: /*
         destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
     envVars:
       - key: NODE_ENV
         value: production
