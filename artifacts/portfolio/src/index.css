@@ -152,8 +152,30 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     scroll-behavior: smooth;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+  }
+  img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+  .allow-select,
+  .allow-select * {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+  }
+  input, textarea, [contenteditable] {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
   }
 }

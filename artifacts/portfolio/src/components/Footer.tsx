@@ -1,5 +1,4 @@
-import { ArrowUp } from "lucide-react";
-import { Facebook } from "lucide-react";
+import { Facebook, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const currentYear = 2026;
@@ -32,11 +31,20 @@ export default function Footer() {
               An aspiring ICT professional dedicated to building practical digital solutions, offering reliable technical support, and continuously learning new technologies.
             </p>
             <div className="flex items-center gap-4">
-              <a 
-                href="https://www.facebook.com/MartJohnFloresLabaco" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/mart-john-labaco-8220b2408"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-blue-700 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://www.facebook.com/MartJohnFloresLabaco"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-blue-600 hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />

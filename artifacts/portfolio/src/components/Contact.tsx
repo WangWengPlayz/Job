@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Mail, Phone, MapPin, Send, Copy, Check, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Copy, Check, Facebook, Linkedin } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -104,7 +104,7 @@ export default function Contact() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-muted-foreground mb-1">Email</p>
-                    <p className="text-foreground font-medium truncate" title={email}>{email}</p>
+                    <p className="text-foreground font-medium truncate allow-select" title={email}>{email}</p>
                     <div className="flex gap-2 mt-3">
                       <Button variant="outline" size="sm" className="h-8 text-xs" asChild>
                         <a href={`mailto:${email}`}>Email Me</a>
@@ -128,7 +128,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground mb-1">Phone</p>
-                    <p className="text-foreground font-medium">+63 930 296 3465</p>
+                    <p className="text-foreground font-medium allow-select">+63 930 296 3465</p>
                     <Button variant="outline" size="sm" className="h-8 text-xs mt-3" asChild>
                       <a href="tel:+639302963465">Call Me</a>
                     </Button>
@@ -147,12 +147,20 @@ export default function Contact() {
 
                 <div className="pt-6 border-t border-border">
                   <p className="text-sm font-medium text-muted-foreground mb-4">Social Media</p>
-                  <Button variant="outline" className="w-full gap-2 justify-start" asChild>
-                    <a href="https://www.facebook.com/MartJohnFloresLabaco" target="_blank" rel="noopener noreferrer">
-                      <Facebook size={18} className="text-blue-600" />
-                      Connect on Facebook
-                    </a>
-                  </Button>
+                  <div className="flex flex-col gap-3">
+                    <Button variant="outline" className="w-full gap-2 justify-start" asChild>
+                      <a href="https://www.linkedin.com/in/mart-john-labaco-8220b2408" target="_blank" rel="noopener noreferrer">
+                        <Linkedin size={18} className="text-blue-700" />
+                        Connect on LinkedIn
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="w-full gap-2 justify-start" asChild>
+                      <a href="https://www.facebook.com/MartJohnFloresLabaco" target="_blank" rel="noopener noreferrer">
+                        <Facebook size={18} className="text-blue-600" />
+                        Connect on Facebook
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
