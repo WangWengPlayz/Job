@@ -74,13 +74,20 @@ export default function Footer() {
 
         </div>
         
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Mart John F. Labaco. All Rights Reserved.
-          </p>
-          <p className="text-xs text-muted-foreground flex items-center gap-1">
-            Built with <span className="text-rose-500">♥</span> using React
-          </p>
+        <div className="pt-8 border-t border-border space-y-5">
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-5 py-4 text-center">
+            <p className="text-xs text-amber-600 dark:text-amber-400 leading-relaxed">
+              <span className="font-semibold">Notice:</span> This website was created solely for professional and job-seeking purposes. It is intended for potential employers and recruiters only. If you are not here to hire or explore my qualifications, please respect my privacy and the effort put into building this portfolio. Thank you for understanding.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground">
+              &copy; {currentYear} Mart John F. Labaco. All Rights Reserved.
+            </p>
+            <p className="text-xs text-muted-foreground flex items-center gap-1">
+              Built with <span className="text-rose-500">♥</span> using React
+            </p>
+          </div>
         </div>
       </div>
     </footer>
