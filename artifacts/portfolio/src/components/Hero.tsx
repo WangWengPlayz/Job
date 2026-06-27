@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@assets/FB_IMG_1774714053691_1782577306962.jpg";
 
 const titles = [
   "ICT Graduate",
@@ -105,10 +106,13 @@ export default function Hero() {
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-blue-400/30 rounded-full animate-[spin_8s_linear_infinite] blur-2xl"></div>
-              <div className="absolute inset-2 md:inset-4 bg-card rounded-full border-4 border-background flex items-center justify-center shadow-2xl">
-                <span className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-primary to-blue-600">
-                  MJL
-                </span>
+              <div className="absolute inset-2 md:inset-4 rounded-full border-4 border-background shadow-2xl overflow-hidden">
+                <img
+                  src={profilePhoto}
+                  alt="Mart John F. Labaco"
+                  className="w-full h-full object-cover object-top"
+                  data-testid="img-profile"
+                />
               </div>
               
               <motion.div 
