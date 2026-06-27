@@ -1,0 +1,12 @@
+{
+  "name": "mart-labaco-portfolio",
+  "version": "1.0.0",
+  "description": "Mart John F. Labaco — Portfolio",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
