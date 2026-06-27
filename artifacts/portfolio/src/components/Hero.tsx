@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Download, ArrowRight, Code } from "lucide-react";
+import { Download, ArrowRight, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@assets/FB_IMG_1774714053691_1782577306962.jpg";
 
 const titles = [
   "ICT Graduate",
-  "Python Developer",
+  "Computer Technician",
   "Virtual Assistant",
-  "Aspiring Software Engineer"
+  "Aspiring IT Professional"
 ];
 
 export default function Hero() {
@@ -18,7 +18,7 @@ export default function Hero() {
 
   useEffect(() => {
     const currentTitle = titles[titleIndex];
-    let typingSpeed = isDeleting ? 50 : 100;
+    const typingSpeed = isDeleting ? 50 : 100;
 
     if (!isDeleting && displayText === currentTitle) {
       setTimeout(() => setIsDeleting(true), 2000);
@@ -53,7 +53,7 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -66,22 +66,22 @@ export default function Hero() {
               </span>
               Available for remote work
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
               Hi, I'm <span className="text-primary">Mart</span>
             </h1>
-            
+
             <div className="h-10 md:h-14 mb-6">
               <h2 className="text-2xl md:text-4xl font-semibold text-muted-foreground">
                 {displayText}
                 <span className="animate-pulse ml-1 inline-block w-[3px] h-[1em] bg-primary align-middle"></span>
               </h2>
             </div>
-            
+
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">
               Building practical digital solutions with dedication, continuous learning, and a passion for helping people through technology.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Button size="lg" onClick={() => scrollTo("contact")} className="w-full sm:w-auto gap-2" data-testid="button-hire-me">
                 Hire Me <ArrowRight size={18} />
@@ -92,13 +92,13 @@ export default function Hero() {
                 </Button>
                 <span className="absolute -top-3 -right-2 bg-primary text-primary-foreground text-[10px] px-2 py-0.5 rounded-full rotate-12 z-10">Coming Soon</span>
               </div>
-              <Button size="lg" variant="ghost" onClick={() => scrollTo("projects")} className="w-full sm:w-auto gap-2 hover:bg-primary/10 hover:text-primary" data-testid="button-view-projects">
-                View Projects <Code size={18} />
+              <Button size="lg" variant="ghost" onClick={() => scrollTo("contact")} className="w-full sm:w-auto gap-2 hover:bg-primary/10 hover:text-primary" data-testid="button-contact">
+                Contact Me <Cpu size={18} />
               </Button>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -114,22 +114,22 @@ export default function Hero() {
                   data-testid="img-profile"
                 />
               </div>
-              
-              <motion.div 
+
+              <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
                 className="absolute top-10 -left-4 md:-left-8 bg-card p-3 md:p-4 rounded-2xl shadow-xl border border-border flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <Code size={20} />
+                  <Cpu size={20} />
                 </div>
                 <div className="hidden sm:block">
-                  <p className="text-xs text-muted-foreground font-medium">Developer</p>
-                  <p className="font-bold text-sm">Python</p>
+                  <p className="text-xs text-muted-foreground font-medium">Specialist</p>
+                  <p className="font-bold text-sm">IT Support</p>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 animate={{ y: [0, 15, 0] }}
                 transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
                 className="absolute bottom-10 -right-4 md:-right-8 bg-card p-3 md:p-4 rounded-2xl shadow-xl border border-border flex items-center gap-3"
@@ -138,8 +138,8 @@ export default function Hero() {
                   <ArrowRight size={20} />
                 </div>
                 <div className="hidden sm:block">
-                  <p className="text-xs text-muted-foreground font-medium">Support</p>
-                  <p className="font-bold text-sm">IT Assistant</p>
+                  <p className="text-xs text-muted-foreground font-medium">Available</p>
+                  <p className="font-bold text-sm">Remote Work</p>
                 </div>
               </motion.div>
             </div>
