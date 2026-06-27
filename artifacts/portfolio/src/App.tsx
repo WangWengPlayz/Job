@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import Admin from "@/pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -23,22 +25,13 @@ function ProtectionLayer() {
   useEffect(() => {
     const blockContextMenu = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
-        target.tagName === "IMG" ||
-        target.closest("img") ||
-        target.tagName === "VIDEO"
-      ) {
+      if (target.tagName === "IMG" || target.closest("img") || target.tagName === "VIDEO") {
         e.preventDefault();
       }
     };
-
     const blockDragStart = (e: DragEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === "IMG") {
-        e.preventDefault();
-      }
+      if ((e.target as HTMLElement).tagName === "IMG") e.preventDefault();
     };
-
     const blockKeyboard = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
       const ctrl = e.ctrlKey || e.metaKey;
@@ -48,23 +41,20 @@ function ProtectionLayer() {
         (ctrl && key === "p") ||
         (ctrl && e.shiftKey && key === "i") ||
         (ctrl && e.shiftKey && key === "j") ||
-        (e.key === "F12")
+        e.key === "F12"
       ) {
         e.preventDefault();
       }
     };
-
     document.addEventListener("contextmenu", blockContextMenu);
     document.addEventListener("dragstart", blockDragStart);
     document.addEventListener("keydown", blockKeyboard);
-
     return () => {
       document.removeEventListener("contextmenu", blockContextMenu);
       document.removeEventListener("dragstart", blockDragStart);
       document.removeEventListener("keydown", blockKeyboard);
     };
   }, []);
-
   return null;
 }
 

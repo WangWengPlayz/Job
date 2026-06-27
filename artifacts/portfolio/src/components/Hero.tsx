@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Download, ArrowRight, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@assets/FB_IMG_1774714053691_1782577306962.jpg";
+import { getAvailability, getJobType, getStatusLabel } from "@/lib/availability";
 
 const titles = [
   "ICT Graduate",
@@ -15,6 +16,17 @@ export default function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [avStatus, setAvStatus] = useState(getAvailability);
+  const [avJobType, setAvJobType] = useState(getJobType);
+
+  useEffect(() => {
+    const onChanged = () => {
+      setAvStatus(getAvailability());
+      setAvJobType(getJobType());
+    };
+    window.addEventListener("availability-changed", onChanged);
+    return () => window.removeEventListener("availability-changed", onChanged);
+  }, []);
 
   useEffect(() => {
     const currentTitle = titles[titleIndex];
@@ -59,12 +71,16 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="flex-1 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
+            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-medium text-sm mb-6 transition-colors ${
+              avStatus === "available"
+                ? "bg-green-500/10 text-green-600 dark:text-green-400"
+                : "bg-rose-500/10 text-rose-600 dark:text-rose-400"
+            }`}>
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${avStatus === "available" ? "bg-green-500" : "bg-rose-500"}`}></span>
+                <span className={`relative inline-flex rounded-full h-2 w-2 ${avStatus === "available" ? "bg-green-500" : "bg-rose-500"}`}></span>
               </span>
-              Available for remote work
+              {getStatusLabel(avStatus, avJobType)}
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
