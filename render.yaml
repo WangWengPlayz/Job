@@ -2,7 +2,7 @@ services:
   - type: web
     name: mart-labaco-portfolio
     env: node
-    buildCommand: npx --yes pnpm@latest install --frozen-lockfile && NODE_ENV=production npx pnpm@latest --filter @workspace/portfolio run build
+    buildCommand: npx --yes pnpm@latest install --no-frozen-lockfile && NODE_ENV=production npx pnpm@latest --filter @workspace/portfolio run build
     startCommand: NODE_ENV=production npx pnpm@latest --filter @workspace/portfolio run serve
     envVars:
       - key: NODE_ENV
